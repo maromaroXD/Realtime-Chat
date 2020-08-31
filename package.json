@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon src/server -e js,hbs"
+    "dev": "nodemon src/server -e js,hbs",
+    "start" : "node src/server"
   },
   "keywords": [],
   "author": "",

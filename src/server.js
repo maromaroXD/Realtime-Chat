@@ -42,7 +42,9 @@ app.get('/chat', function (req, res) {
    socket.on('joinRoom' , (cnt) => {
      const user = userOnJoin(socket.id , cnt.username , cnt.room);
      socket.join(user.room);
-     socket.emit('message', formatMessage(Bot ,'Welcome To Game&Chat'));
+     socket.emit('message', formatMessage(Bot ,'Welcome To Game&Chat. if you waiting for maromaro he '+
+                                                'will be online next Fri Sept 4'+
+                                                ' From 6PM to 7PM WEST — Western European Summer Time'));
      //Broadcast when new connection
      socket.broadcast.to(user.room).emit('message' ,
                       formatMessage(Bot,`${cnt.username} has joined the chat.`));
