@@ -11,17 +11,19 @@
 			<main class="join-main">
 				<form action="/chat">
 					<div class="form-control">
-						<label for="username">Username</label>
-						<input
-							type="text"
-							name="username"
-							id="username"
-							placeholder="Enter username..."
-							required
-						/>
+						<div class="form__group field">
+					  <input
+						type="input"
+						class="form__field"
+						placeholder="Name"
+						name="username"
+						id='username'
+						required />
+					  <label for="name" class="form__label">Name</label>
+					</div>
 					</div>
 					<div class="form-control">
-						<label for="room">Room</label>
+						<label for="room" class="Front-label">Room</label>
 						<select name="room" id="room">
 							<option value="League of legends">League of legends</option>
 							<option value="World of warcraft">World of warcraft</option>
@@ -29,8 +31,8 @@
 							<option value="Among Us">Among Us</option>
 							<option value="Leave me alone room">Leave me alone room</option>
 						</select>
+						<button type="submit" class="btn-flip" data-back="Welcom !" data-front="Join Chat"> </button>
 					</div>
-					<button type="submit" class="btn">Join Chat</button>
 				</form>
 			</main>
 		</div>

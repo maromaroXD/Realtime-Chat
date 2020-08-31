@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+//vars
+$speed: 0.5s;
+
 :root {
-	--dark-color-a: #14213d;
-	--dark-color-b: #4a4e69;
+	--dark-color-a: rgb(58,87,149);
+	--dark-color-b: #1d2228 ;
 	--light-color: #e6e9ff;
 	--success-color: #5cb85c;
 	--error-color: #d9534f;
@@ -19,6 +22,8 @@ body {
 	font-size: 16px;
 	background: var(--light-color);
 	margin: 20px;
+	align-items: center;
+	justify-content: center;
 }
 
 ul {
@@ -27,6 +32,70 @@ ul {
 
 a {
 	text-decoration: none;
+}
+
+.btn-flip{
+	  margin-top: 15px;
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+		padding: 0;
+		border: none;
+		background: none;
+		margin-left: 130px;
+
+
+    &:hover{
+
+        &:after{
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        &:before{
+            opacity: 0;
+            transform: translateY(50%) rotateX(90deg);
+        }
+    }
+
+    &:after{
+			  border-radius: 9px;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        color: #323237;
+        display: block;
+        transition: $speed;
+        position: absolute;
+        background: #adadaf;
+        content: attr(data-back);
+        transform: translateY(-50%) rotateX(90deg);
+    }
+
+    &:before{
+				border-radius: 9px;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        color: #adadaf;
+        display: block;
+        padding: 0 30px;
+        line-height: 40px;
+        transition: $speed;
+        position: relative;
+        background: #323237;
+        content: attr(data-front);
+        transform: translateY(0) rotateX(0);
+    }
 }
 
 .btn {
@@ -58,6 +127,77 @@ a {
   background-color: #e63946;
 }
 
+.Front-label{
+	font-family: 'Open Sans';
+	// text-transform: uppercase;
+}
+
+//Username
+
+$primary: var(--light-color);
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 200%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;
+  }
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+
 /* logo */
 .logo {
   width: 40px;
@@ -74,7 +214,7 @@ a {
 }
 
 .chat-header {
-	background: var(--dark-color-a);
+	background: var(--dark-color-b);
 	color: #fff;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -138,7 +278,7 @@ a {
 
 .chat-form-container {
 	padding: 20px 30px;
-	background-color: var(--dark-color-a);
+	background-color: var(--dark-color-b);
 }
 
 .chat-form-container form {
